@@ -1,5 +1,5 @@
 
-//除chrome外，其他支持需要在服务器上运行才支持
+// 需支持 localStorage
 if(!window.localStorage){
     alert('不支持localstorage，抽奖无法启动！');
 }
@@ -165,7 +165,7 @@ var nextFrame = window.requestAnimationFrame       ||
             window.msCancelRequestAnimationFrame      ||
             clearTimeout,
     // 初始滚动速度
-    speed = 6,
+    speed = 3,
     // 每个对话框外部高度(包括padding与margin)
     // 注：为了方便，这里统一设置为 132+28 = 160
     item_outer_height = $('.lottery-list:eq(1)').outerHeight(true),
@@ -295,6 +295,7 @@ function stopLottery() {
     var id = $('#lottery-wrap .lottery-list').eq(sure_index).data('id');
     var name = $('#lottery-wrap .lottery-list').eq(sure_index).data('name');
     var avatar = $('#lottery-wrap .lottery-list').eq(sure_index).data('avatar');
+    var wish = $('#lottery-wrap .lottery-list').eq(sure_index).data('wish');
 
     // 停止动画
     cancelFrame(timer);
@@ -343,7 +344,8 @@ function stopLottery() {
     log.winners.push({
         'id': id,
         'avatar': avatar,
-        'name': name
+        'name': name,
+        'wish': wish
     });
     local_handle.set('award_datas', JSON.stringify(award_datas));
 
@@ -354,29 +356,23 @@ function stopLottery() {
     local_handle.delete(lottery_datas, id);
 
     // 绘制最后出现的中奖canvas图
-    drawAward(award, name, avatar);
+    drawAward(award, name, avatar, wish);
 
     setTimeout(function() {
-        // $('.snow-canvas').snow();
         $('#lottery-result').modal('show');
-        drawAward(award, name, avatar);
+        drawAward(award, name, avatar, wish);
 
         can_stop = true;
         clearTimeout(arguments.callee);
-
-        // 清除当前的定时任务
-        // isStart = false;
-        // isMove = true;
-        // lottery_btn.text('开始抽奖');
-        // lottery_btn.css('background', 'none');
     }, 4200);
-
 }
 
 // canvas 绘制中奖结果
-function drawAward(award, name, avatar) {
+function drawAward(award, name, avatar, wish) {
     var config = award_config[award];
     var canvas = document.getElementById('lottery-canvas');
+    var wish_text = document.getElementsByClassName('wish-text')[0];
+    var name_wrap = document.getElementsByClassName('name-wrap')[0];
     var context = canvas.getContext('2d');
     var back_img = new Image();
     var back_img_load = false;
@@ -388,24 +384,20 @@ function drawAward(award, name, avatar) {
             return;
         }
         // 设置大小
-        canvas.width = 700;
-        canvas.height = 1300;
+        canvas.width = 500;
+        canvas.height = 525;
         // 绘制背景
-        context.drawImage(back_img, 0, 0);
+        context.drawImage(back_img, 100, 0, 300, 525);
 
-        // 绘制名字
-        context.fillStyle = '#D9AD61';
-        context.font = 'bold 6rem STKaiti';
-        if (name.length <= 2) {
-            context.fillText(name, 300, 1010);
-        } else if (name.length >= 3) {
-            context.fillText(name, 280, 1000);
-        }
+        // 填充名称
+        name_wrap.innerHTML = name;
+        // 填充寄语
+        wish_text.innerHTML = wish;
 
         // 绘制圆形头像
         try {
             if (avatar) {
-                circleImg(context, avatar_img, 158, 178 , 200);
+                circleImg(context, avatar_img, 158, 67, 92);
             }
         } catch (e) {}
     }
@@ -477,10 +469,9 @@ $(function(){
             this.music_bool = false;
         }
     };
-    music_config.init();
     $('#music-control').click(function () {
         if (music_config.music_bool) {
-            music_config.pause()
+            music_config.pause();
         } else {
             music_config.play();
         }
@@ -603,5 +594,4 @@ $(function(){
             $('#clear-control').click();
         }
     });
-
 });

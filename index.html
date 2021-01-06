@@ -37,19 +37,28 @@
     <div class="modal-dialog">
         <div class="modal-content" >
             <div class="modal-inner">
+                <div class="wish-wrap">
+                    <div class="beauty beauty-1"></div>
+                    <div class="beauty beauty-2"></div>
+                    <div class="beauty beauty-3"></div>
+                    <div class="beauty beauty-4"></div>
+                    <span class="wish-title">新年愿景及祝福:</span>
+                    <span class="wish-text"></span>
+                    </div>
+                <p class="name-wrap"></p>
+                <canvas id="lottery-canvas"></canvas>
                 <button class="close" id="modal-close" data-dismiss="modal">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <canvas id="lottery-canvas"></canvas>
             </div>
         </div>
     </div>
 </div>
 
 <div class="main">
-    <div class="lotterty-infogo">
-        <img src="img/logo.png">
-    </div>
+    <h1 class="lotterty-logo">
+        松茂年会抽奖
+    </h1>
     <div id="lottery-main" class="lottery-main">
         <div class="wrap-border-main">
             <img src="./img/wrap-border-1.png" class="wrap-border wrap-border-1">
@@ -79,10 +88,6 @@
         </div>
     </div>
 </div>
-
-<canvas class="snow-canvas" speed="2" interaction="true" size="10" count="30" start-color="rgba(253,252,251,1)" end-color="rgba(251,252,253,0.3)" opacity="0.00001" wind-power="2" image="false" width="1366" height="667"></canvas>
-<canvas class="snow-canvas" speed="3" interaction="true" size="12" count="80" wind-power="-5" image="./img/snow.png" width="1366" height="667"></canvas>
-
 <footer class="footer"></footer>
 
 <!-- 按钮组模板 start -->
@@ -96,7 +101,7 @@
 <!-- 新年祝福框模板 start -->
 <script type="text/template" id="lotterycon-tpl">
     <% _.each(data, function (item) { %>
-    <div class="clearfix lottery-list <%= no_avatar ? 'no_avatar' : '' %> <%= simple ? 'simple' : '' %>" data-id="<%= item.id %>" data-name="<%= item.name %>" data-avatar="<%= item.avatar %>">
+    <div class="clearfix lottery-list <%= no_avatar ? 'no_avatar' : '' %> <%= simple ? 'simple' : '' %>" data-id="<%= item.id %>" data-name="<%= item.name %>" data-avatar="<%= item.avatar %>" data-wish="<%= item.wish %>">
         <div class="f-l turqoise lottery-avatar">
             <img src="<%= item.avatar %>" alt="<%= item.avatar %>">
         </div>
@@ -155,7 +160,6 @@
 <script type="text/javascript" src="./js/jquery.min.js"></script>
 <script type="text/javascript" src="./lottery_data.js"></script>
 <script src="js/boot-modal.js"></script>
-<script src="js/snow-plugin.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

@@ -126,31 +126,27 @@ var award_config = {
         label: '一等奖',
         char: '一',
         image: './img/award_1.png',
-        count: 1,
+        count: 3,
         items: [
-            { label: '佳能微单', image: './img/gift/canon.jpg' }
+            { label: '多喝热水', image: './img/gift/beizi.jpg' }
         ]
     },
     "award02": {
         label: '二等奖',
         char: '二',
         image: './img/award_2.png',
-        count: 3,
+        count: 6,
         items: [
-            { label: 'Kindle 阅读器', image: './img/gift/kindle.jpg' },
-            { label: 'Kindle 酷乐视投影机', image: './img/gift/kule.jpg' },
-            { label: 'Kindle Beats动力耳机', image: './img/gift/beats.jpg' }
+            { label: '多喝热水', image: './img/gift/beizi.jpg' }
         ]
     },
     "award03": {
         label: '三等奖',
         char: '三',
         image: './img/award_3.png',
-        count: 6,
+        count: 9,
         items: [
-            { label: '京东购物E卡', image: './img/gift/jingdong.jpg' },
-            { label: '飞利浦电动牙刷', image: './img/gift/yashua.jpg' },
-            { label: '颈椎按摩器', image: './img/gift/anmo.jpg' }
+            { label: '多喝热水', image: './img/gift/beizi.jpg' }
         ]
     },
     "award04": {
@@ -159,10 +155,7 @@ var award_config = {
         image: './img/award_4.png',
         count: 20,
         items: [
-            { label: '罗马仕充电宝', image: './img/gift/chongdian.jpg' },
-            { label: '马卡龙  暖手宝', image: './img/gift/nuanshou.jpg' },
-            { label: '旅行双肩包', image: './img/gift/bao.jpg' },
-            { label: '乐扣马克保温杯', image: './img/gift/beizi.jpg' }
+            { label: '多喝热水', image: './img/gift/beizi.jpg' }
         ]
     }
 };

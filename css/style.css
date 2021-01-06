@@ -44,9 +44,31 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    background: #fafafa;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background: #fafafa;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #c1c1c1;
+}
 /* 清除浮动 */
-.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
-.clearfix{*+height:1%;}
+.clearfix:after{
+    content:".";
+    display:block;
+    height:0;clear:both;
+    visibility:hidden
+}
+.clearfix {
+   *+height:1%;
+}
 .f-l {
    float: left;
 }
@@ -67,9 +89,7 @@ html {
 }
 body {
     height: 100%;
-    /*background: #FFF7E3;*/
     background: url("../img/yunwen.jpg") repeat;
-    /*background: #fff;*/
     font-size: 1.5rem;
 }
 
@@ -95,8 +115,6 @@ aside {
     height: 100%;
     z-index: 1;
     text-align: center;
-    /*background: #fff;*/
-    /*border: 1px solid red;*/
 }
 .aside-main {
     display: none;
@@ -105,6 +123,7 @@ aside {
     background: #fff;
     padding-top: 4rem;
     box-shadow: 0 4px 8px #aaa;
+    overflow-y: scroll;
 }
 aside.aside-left {
     left: 0;
@@ -206,22 +225,35 @@ aside .switch {
     }
 }
 
-.lotterty-infogo {
-    margin: 3rem auto 0 auto;
-    text-align: center
-}
-.lotterty-infogo h3 {
-    display: inline-block;
+.lotterty-logo {
+    margin: auto;
+    text-align: center;
+    width: 700px;
+    line-height: 8.5rem;
     color: #FD361F;
-    font-size: 3rem;
+    font-size: 52px;
     font-weight: bold;
     font-family: 'STKaiti', 'KaiTi ';
+    position: relative;
 }
-.lotterty-infogo .line {
-    margin: 2rem auto 1rem auto;
-    width: 20%;
-    height: 2px;
-    background: #FD361F;
+.lotterty-logo:before, .lotterty-logo:after {
+    position: absolute;
+    content: '';
+    width: 165px;
+    height: 53px;
+    bottom: 20px;
+}
+.lotterty-logo:before {
+    left: 0;
+    background: url('../img/yun-left.png');
+    background-size: 100% 100%;
+    transform: rotate(16deg);
+}
+.lotterty-logo:after {
+    right: 0;
+    background: url('../img/yun.png');
+    background-size: 100% 100%;
+    transform: rotate(-16deg);
 }
 .lottery-main {
     position: relative;
@@ -472,12 +504,13 @@ aside .switch {
 .lottery-content .content-detail b {
     color: #FD361F;
     font-weight: bold;
+    font-size: 2rem;
     font-family: 'STKaiti', 'KaiTi ';
 }
 .lottery-content .content-detail span {
     margin: 15px 0 10px;
     line-height: 25px;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 400;
     font-family: 'STKaiti', 'KaiTi ';
 }
@@ -509,7 +542,7 @@ aside .switch {
 }
 
 .dashboard {
-    margin: 4rem auto 0 auto;
+    margin: 5rem auto 0 auto;
     display: flex;
 }
 .dashboard-f {
@@ -521,7 +554,7 @@ aside .switch {
     position: relative;
 }
 #dashboard-btns-m {
-    width: 15%;
+    width: 200px;
 }
 #dashboard-btns-l, #dashboard-btns-r {
     display: flex;
@@ -560,6 +593,7 @@ aside .switch {
     padding: 1rem 1.6rem;
     cursor: pointer;
     font-size: 2rem;
+    box-sizing: border-box;
     font-family: 'STKaiti', 'KaiTi ';
 }
 
@@ -580,19 +614,16 @@ aside .switch {
 
 .dashboard .cirle-btn {
     display: inline-block;
-    width: 2rem;
-    height: 2rem;
+    text-align: center;
+    line-height: 4rem;
+    width: 4rem;
+    height: 4rem;
     color: #FD361F;
-    padding: 0.5rem;
     cursor: pointer;
-    font-size: 2rem;
-    font-weight: 800;
+    font-size: 25px;
     font-family: 'STKaiti', 'KaiTi ';
-    border: 3px solid #FD361F;
+    border: 2px solid #FD361F;
     border-radius: 100%;
-    -webkit-box-shadow: 0 5px rgba(253, 54, 31, 0.5);
-    -moz-box-shadow: 0 5px rgba(253, 54, 31, 0.5);
-    box-shadow: 0 5px rgba(253, 54, 31, 0.5);
 }
 .award-active {
     background: #ffbfb7;
@@ -618,10 +649,8 @@ aside .switch {
 button.close {
     display: none;
     position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    -webkit-appearance: none;
+    top: 0;
+    right: 0;
     padding: 0;
     cursor: pointer;
     background: 0 0;
@@ -655,7 +684,6 @@ button.close {
     -ms-transform: translate(0,-25%);
     -o-transform: translate(0,-25%);
     transform: translate(0,-25%);
-    /*top: 15%;*/
 }
 .modal.in .modal-dialog {
     -webkit-transform: translate(0,0);
@@ -668,10 +696,7 @@ button.close {
     overflow-y: auto
 }
 .modal-dialog {
-    position: relative;
-    width: auto;
-    height: 80%;
-    margin: 10px;
+    margin-top: 50px;
 }
 .modal-content {
     position: relative;
@@ -686,40 +711,68 @@ button.close {
 .modal-content .modal-inner {
     position: relative;
 }
-.modal-content #lottery-back {
+.modal-content .name-wrap, .modal-content .wish-wrap {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-}
-
-.modal-content #lottery-avatar {
-    position: absolute;
-    top: 11.2%;
-    left: 19.2%;
-    width: 61%;
-    text-align: center;
-}
-
-.modal-content #lottery-name {
-    position: absolute;
-    bottom: 27%;
     width: 100%;
     text-align: center;
-    font-size: 5rem;
-    color: #D9AD61;
     font-weight: bold;
     font-family: 'STKaiti', 'KaiTi ';
 }
+.modal-content .name-wrap {
+    top: 400px;
+    font-size: 3rem;
+    color: #D9AD61;
 
-
-.modal-content #lottery-img {
-    width: 100%;
-    display: none;
+}
+.modal-content .wish-wrap {
+    top: 545px;
+    position: absolute;
+    background: #fff;
+    line-height: 40px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.modal-content .wish-wrap .wish-title {
+    color: #FD361F;
+    font-size: 25px;
+}
+.modal-content .wish-wrap .wish-text {
+    font-size: 22px;
+}
+.modal-content .wish-wrap .beauty {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+}
+.modal-content .wish-wrap .beauty-1 {
+    top: 3px;
+    left: 3px;
+    background: url("../img/border-01.png") no-repeat;
+    background-size: contain;
+}
+.modal-content .wish-wrap .beauty-2 {
+    top: 3px;
+    right: 3px;
+    background: url("../img/border-02.png") no-repeat;
+    background-size: contain;
+}
+.modal-content .wish-wrap .beauty-3 {
+    bottom: 3px;
+    left: 3px;
+    background: url("../img/border-03.png") no-repeat;
+    background-size: contain;
+}
+.modal-content .wish-wrap .beauty-4 {
+    bottom: 3px;
+    right: 3px;
+    background: url("../img/border-04.png") no-repeat;
+    background-size: contain;
+}
+.modal-content .wish-wrap span {
+    display: block;
 }
 .modal-content #lottery-canvas {
     width: 100%;
-    /*display: none;*/
 }
 .modal-backdrop {
     position: fixed;
@@ -734,8 +787,8 @@ button.close {
     opacity: 0
 }
 .modal-backdrop.in {
-    filter: alpha(opacity=50);
-    opacity: .5
+    filter: alpha(opacity=70);
+    opacity: .7
 }
 .modal-header {
     min-height: 16.43px;
@@ -775,24 +828,6 @@ button.close {
     height: 50px;
     overflow: scroll
 }
-@media (min-width: 768px) {
-    .modal-dialog {
-        width: 20%;
-        margin: 30px auto
-    }
-}
-
-.snow-canvas {
-    display: none;
-    position: fixed;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1045;
-}
-
 .stop-main {
     display: none;
     position: fixed;
