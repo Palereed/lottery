@@ -222,7 +222,6 @@ function startLottery() {
     isLock = true;
     // 设置抽奖按钮状态
     lottery_btn.text('正在滚动 ^_^');
-    lottery_btn.css('background', '#FFBFB7');
 
     setout_time = setTimeout(function () {
         speed = 15;

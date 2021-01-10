@@ -76,7 +76,13 @@ table {
     float: right;
 }
 * {
-    font-family: '微软雅黑', sans-serif, arial;
+    font-family: 'KAITI', sans-serif, arial !important;
+}
+@font-face {
+    font-family: 'KAITI';
+    src: url('../fonts/KAITI.TTF');
+    font-weight: normal;
+    font-style: normal;
 }
 html {
     height: 100%;
@@ -89,22 +95,11 @@ html {
 }
 body {
     height: 100%;
-    background: url("../img/yunwen.jpg") repeat;
+    background: url("../img/bg.jpg") center / cover;
     font-size: 1.5rem;
 }
-
-.top-head {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 60px;
-    z-index: 2;
-    background: url("../img/top_border.png") repeat-x;
-}
-
 .main {
-    width: 62%;
+    width: 60%;
     height: 100%;
     margin: 5rem auto 0 auto;
 }
@@ -131,14 +126,18 @@ aside.aside-left {
 aside.aside-right {
     right: 0;
 }
+@keyframes rotation
+{
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
 aside .switch {
-    margin-top: 1.2rem;
-    transform: rotateY(360deg);
-    transition: all 2s ease-in-out;
     cursor: pointer;
-    -moz-animation: rotation 3s linear infinite;
-    -webkit-animation: rotation 3s linear infinite;
-    -o-animation: rotation 3s linear infinite;
+    animation: rotation 3s linear infinite;
 }
 .award-main {
     margin-top: 1.5rem;
@@ -159,7 +158,6 @@ aside .switch {
     font-size: 2rem;
     font-weight: 800;
     text-align: center;
-    font-family: 'STKaiti', 'KaiTi ';
     border-bottom: 2px solid #FD361F;
 }
 #award-con .list-title {
@@ -194,7 +192,6 @@ aside .switch {
     line-height: 2rem;
     color: #2980B9;
     font-size: 2rem;
-    font-family: 'STKaiti', 'KaiTi ';
 }
 #award-con .list-content .list-item .label {
     font-size: 1.5rem;
@@ -224,107 +221,40 @@ aside .switch {
         transform: rotateY(-180deg);
     }
 }
-
 .lotterty-logo {
     margin: auto;
     text-align: center;
     width: 700px;
     line-height: 8.5rem;
-    color: #FD361F;
+    color: #e6d076;
     font-size: 52px;
     font-weight: bold;
-    font-family: 'STKaiti', 'KaiTi ';
     position: relative;
 }
 .lotterty-logo:before, .lotterty-logo:after {
     position: absolute;
     content: '';
-    width: 165px;
-    height: 53px;
+    width: 244.2px;
+    height: 72px;
     bottom: 20px;
 }
 .lotterty-logo:before {
-    left: 0;
-    background: url('../img/yun-left.png');
+    left: -45px;
+    background: url('../img/yun-before.png');
     background-size: 100% 100%;
     transform: rotate(16deg);
 }
 .lotterty-logo:after {
-    right: 0;
-    background: url('../img/yun.png');
+    right: -50px;
+    background: url('../img/yun-after.png');
     background-size: 100% 100%;
     transform: rotate(-16deg);
 }
 .lottery-main {
     position: relative;
     margin: 0 auto;
-    /*padding-bottom: 5rem;*/
-    /*padding: 20px 0;*/
     height: 100%;
     width: 100%;
-    /*overflow: hidden;*/
-    /*background: #fff;*/
-    /*border: 1px solid #ddd;*/
-    /*border-radius: 5px;*/
-    /*box-shadow: 0 2px 2px rgba(0,0,0,.1)*/
-}
-.wrap-border-main {
-    position: absolute;
-    width: 100%;
-    height: 75%;
-    z-index: -5;
-}
-.wrap-border {
-    position: absolute;
-    width: 21.5rem;
-    height: 21.5rem;
-    /*top: 0;*/
-    /*left: 0;*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-    /*background: url("../img/main-wrap-border.png") no-repeat 0 0;*/
-    background-size: contain;
-}
-.wrap-border-top {
-    top: 0.2%;
-    left: 9%;
-    bottom: 0;
-    height: 97.4%;
-    width: 81%;
-    margin: 0 auto;
-    border-top: 4.5px solid #CB141D;
-    border-bottom: 4.5px solid #CB141D;
-}
-.wrap-border-left {
-    left: 0;
-    right: 0;
-    bottom: 7%;
-    height: 80%;
-    width: 98.7%;
-    border-left: 4.5px solid #CB141D;
-}
-.wrap-border-right {
-    top: 10%;
-    right: 0;
-    height: 80%;
-    width: 4.3px;
-    background: #CB141D;
-}
-.wrap-border-1 {
-    top: 0;
-    left: 0;
-}
-.wrap-border-2 {
-    top: 0;
-    right: 0;
-}
-.wrap-border-3 {
-    bottom: 0;
-    left: 0;
-}
-.wrap-border-4 {
-    bottom: 0;
-    right: 0;
 }
 .wrap-main .stop-time {
     display: none;
@@ -332,7 +262,6 @@ aside .switch {
     top: 40%;
     height: 11rem;
     font-size: 11rem;
-    font-family: 'STKaiti', 'KaiTi ';
     color: #CB141D;
 }
 .wrap-main #stop_left {
@@ -342,37 +271,27 @@ aside .switch {
     right: -1%;
     padding-right: 2%;
 }
-.lottery-arrow {
-    position: absolute;
-    right: 0;
-    top: 50%;
-}
 .wrap-main {
     margin: 0 8rem;
     position: relative;
     top: 2%;
-    /*height: 640px*/
     height: 71%;
     overflow: hidden;
-    /*border: 3px solid #CB141D;*/
 }
 #lottery-wrap {
     position: absolute;
     top: 20px;
     width: 100%;
 }
-
 #lottery-wrap .sure-active {
-    border-top: 5px solid #CB141D;
-    border-bottom: 5px solid #CB141D;
+    border-top: 5px solid #e6d076;
+    border-bottom: 5px solid #e6d076;
     -webkit-transition: all 1s;
     -moz-transition: all 1s;
     -ms-transition: all 1s;
     -o-transition: all 1s;
     transition: all 1s;
-    /*padding: 2rem;*/
 }
-
 .lottery-list {
     position: relative;
     margin: 0 auto 2rem auto;
@@ -414,16 +333,7 @@ aside .switch {
     -webkit-box-shadow: 0 2px rgba(0,0,0,0.1);
     -moz-box-shadow: 0 2px rgba(0,0,0,0.1);
     box-shadow: 0 2px rgba(0,0,0,0.1);
-    /*background: #FE351E;*/
-    background: rgba(255,255,255,0.8);
-    /*border: 2px solid #FD361F;*/
-    /*border:15px solid transparent;*/
-    /*-moz-border-image:url(../img/china-border.png) 30 30 stretch;	!* Old Firefox *!*/
-    /*-webkit-border-image:url(../img/china-border.png) 30 30 stretch;	!* Safari and Chrome *!*/
-    /*-o-border-image:url(../img/china-border.png) 30 30 stretch;		!* Opera *!*/
-    /*border-image:url(../img/china-border.png) 30 30 stretch;*/
-    /*background: url("../img/border.png") no-repeat;*/
-    /*background-size: cover;*/
+    background: #ffffff;
 }
 .lottery-content .beauty {
     position: absolute;
@@ -493,7 +403,6 @@ aside .switch {
     font-size: 2rem;
     color: #2980b9;
     font-weight: bold;
-    font-family: 'STKaiti', 'KaiTi ';
 }
 .lottery-content .content-title .company {
     font-size: 1.4rem;
@@ -505,14 +414,12 @@ aside .switch {
     color: #FD361F;
     font-weight: bold;
     font-size: 2rem;
-    font-family: 'STKaiti', 'KaiTi ';
 }
 .lottery-content .content-detail span {
     margin: 15px 0 10px;
     line-height: 25px;
     font-size: 1.8rem;
     font-weight: 400;
-    font-family: 'STKaiti', 'KaiTi ';
 }
 
 .lottery-list.simple .lottery-content .content-title {
@@ -525,7 +432,6 @@ aside .switch {
     line-height: 75px;
     color: #FD361F;
     font-weight: bold;
-    font-family: 'STKaiti', 'KaiTi ';
 }
 
 .lottery-list.no_avatar .lottery-avatar {
@@ -554,7 +460,10 @@ aside .switch {
     position: relative;
 }
 #dashboard-btns-m {
-    width: 200px;
+    width: 186.6px;
+    height: 58.2px;
+    background: url('../img/btn.png');
+    background-size: 100% 100%;
 }
 #dashboard-btns-l, #dashboard-btns-r {
     display: flex;
@@ -568,9 +477,6 @@ aside .switch {
 .btn-red {
     color: #ffffff;
     background: #FD361F;
-    /*-webkit-box-shadow: 0 6px rgba(253, 54, 31, 0.5);*/
-    /*-moz-box-shadow: 0 6px rgba(253, 54, 31, 0.5);*/
-    /*box-shadow: 0 6px rgba(253, 54, 31, 0.5);*/
     box-shadow: 0 6px #B92C1C;
 }
 .btn-red-outline {
@@ -584,24 +490,18 @@ aside .switch {
     box-shadow: 0 6px rgba(253, 54, 31, 0.5);
     font-size: 2rem;
     font-weight: 600;
-    font-family: 'STKaiti', 'KaiTi ';
 }
 .dashboard .lottery-btn {
     display: inline-block;
     width: 100%;
     margin: 0 auto;
-    padding: 1rem 1.6rem;
     cursor: pointer;
-    font-size: 2rem;
+    font-size: 22px;
     box-sizing: border-box;
-    font-family: 'STKaiti', 'KaiTi ';
-}
-
-.dashboard .lottery-btn:active {
-    margin-top: 5px;
-    -webkit-box-shadow: 0 1px rgba(253, 54, 31, 0.3);
-    -moz-box-shadow: 0 1px rgba(253, 54, 31, 0.3);
-    box-shadow: 0 1px rgba(253, 54, 31, 0.3);
+    line-height: 58.2px;
+    text-align: center;
+    color: #8f6927;
+    font-weight: 700;
 }
 .dashboard .lottery-btn.start {
     background: #d41c07;
@@ -611,24 +511,21 @@ aside .switch {
     background: #d41c07;
     cursor: not-allowed;
 }
-
 .dashboard .cirle-btn {
     display: inline-block;
     text-align: center;
-    line-height: 4rem;
-    width: 4rem;
-    height: 4rem;
-    color: #FD361F;
+    line-height: 58px;
+    width: 74px;
+    height: 58px;
+    color: #8f6927;
     cursor: pointer;
     font-size: 25px;
-    font-family: 'STKaiti', 'KaiTi ';
-    border: 2px solid #FD361F;
-    border-radius: 100%;
+    background: url('../img/prize-btn.png');
+    background-size: 100% 100%;
 }
 .award-active {
-    background: #ffbfb7;
+    color: #FD361F !important;
 }
-
 .close {
     float: right;
     font-size: 21px;
@@ -636,8 +533,6 @@ aside .switch {
     line-height: 1;
     color: #000;
     text-shadow: 0 1px 0 #aaa;
-    /*filter: alpha(opacity=20);*/
-    /*opacity: .2*/
 }
 .close:hover,.close:focus {
     color: #000;
@@ -716,7 +611,6 @@ button.close {
     width: 100%;
     text-align: center;
     font-weight: bold;
-    font-family: 'STKaiti', 'KaiTi ';
 }
 .modal-content .name-wrap {
     top: 400px;
@@ -846,7 +740,6 @@ button.close {
     text-align: center;
     font-size: 20rem;
     color: #FD361F;
-    font-family: 'STKaiti', 'KaiTi ';
     border: 4px solid #FD361F;
     border-radius: 100%;
 }
@@ -860,22 +753,11 @@ button.close {
     height: 100%;
     background: rgba(0,0,0,0.1);
 }
-
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 2rem;
-    z-index: 3;
-    background: url("../img/langhua.png") repeat-x;
-    background-size: contain;
-}
-
 #music-control {
     z-index: 99;
     position: fixed;
-    bottom: 3%;
-    left: 0.5%;
+    bottom: 20px;
+    left: 20px;
     width: 3rem;
     height: 3rem;
     background: url("../img/music.png") 0 0 no-repeat;
@@ -885,10 +767,10 @@ footer {
 #clear-control {
     z-index: 99;
     position: fixed;
-    bottom: 3%;
-    right: 0.5%;
+    bottom: 20px;
+    right: 20px;
     width: 3rem;
     height: 3rem;
-    background: url("../img/clear.png") 0 0 no-repeat;
+    background: url("../img/delete.png") 0 0 no-repeat;
     background-size: contain;
 }
